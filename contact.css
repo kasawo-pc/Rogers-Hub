@@ -1,0 +1,455 @@
+/* ==========================================================================
+   1. Dynamic CSS Variables & Base Theme Setup
+   ========================================================================== */
+:root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: #1e293b;
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-color: #38bdf8;
+    --accent-hover: #0284c7;
+    --border-color: #334155;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --error-color: #ef4444;
+    --success-color: #22c55e;
+    --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --transition-speed: 0.3s;
+}
+
+[data-theme="light"] {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    --accent-color: #0284c7;
+    --accent-hover: #0369a1;
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+.btn-submit-action {
+
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+    scrollbar-highlight-color: #22c55e;
+}
+
+.btn-submit-action:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   2. Global Top Navigation & Theme Toggle Button
+   ========================================================================== */
+.utility-bar {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.nav-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.brand-sub-label {
+    color: var(--accent-color);
+}
+
+.btn-toggle {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-toggle:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-color);
+}
+
+/* ==========================================================================
+   3. Header Area
+   ========================================================================== */
+.club-header {
+    padding: 3rem 0 2rem;
+    background: radial-gradient(circle at center, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+}
+
+.header-layout-grid {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.avatar-inner-ring {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    padding: 4px;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.pulse-online-badge {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 12px;
+    height: 12px;
+    background-color: #22c55e;
+    border-radius: 50%;
+}
+
+.club-meta-tag {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+}
+
+.club-main-title {
+    font-size: 2.2rem;
+    margin: 0.2rem 0;
+}
+
+.btn-dashboard-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 6px;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-dashboard-link:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* ==========================================================================
+   4. Contact Workspace & Form Layout
+   ========================================================================== */
+.main-content {
+    padding: 2rem 0 4rem;
+}
+
+.welcome-main-heading {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-subtext-description {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.contact-grid-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .contact-grid-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-container-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color var(--transition-speed) ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.input-error-msg {
+    color: var(--error-color);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    display: none;
+}
+
+.form-group.error input,
+.form-group.error textarea {
+    border-color: var(--error-color);
+}
+
+.form-group.error .input-error-msg {
+    display: block;
+}
+
+.btn-submit-form {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.btn-submit-form:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.form-feedback-message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    display: none;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.form-feedback-message.success {
+    display: block;
+    background-color: rgba(34, 197, 94, 0.15);
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+}
+
+/* ==========================================================================
+   5. Side Links & Resource Cards
+   ========================================================================== */
+.contact-links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.resource-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: transform var(--transition-speed) ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+}
+
+.resource-icon-box {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+}
+
+.resource-details h4 {
+    margin-bottom: 0.3rem;
+}
+
+.resource-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.btn-ai-assistant {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-ai-assistant:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* ==========================================================================
+   6. Corporate Footer
+   ========================================================================== */
+.site-main-footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 2.5rem 0 0;
+    margin-top: 3rem;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.footer-primary-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+    .footer-primary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.footer-brand-mission-statement {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.registry-data-list {
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+.footer-copyright-meta-bar {
+    border-top: 1px solid var(--border-color);
+    padding: 1rem 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.footer-meta-flex-alignment {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Button Container Style */
+.btn-submit-form {
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0;
+    /* Remove padding here so link fills the button */
+    transition: background-color 0.2s ease;
+}
+
+/* Hover Effect */
+.btn-submit-form:hover {
+    background-color: #0056b3;
+}
+
+/* Link Style Expansion */
+.btn-submit-form a {
+    color: #ffffff;
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    /* Padding goes here to make the whole button clickable */
+    text-decoration: none;
+    width: 100%;
+}

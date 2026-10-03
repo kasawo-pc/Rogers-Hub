@@ -1,0 +1,744 @@
+/* ==========================================================================
+   CSS Custom Properties & Theme Setup
+   ========================================================================== */
+:root {
+    --font-main: 'Inter', sans-serif;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius-sm: 8px;
+    --border-radius-lg: 16px;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-utility: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-gradient: linear-gradient(135deg, #38bdf8, #818cf8);
+    --accent-color: #38bdf8;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --glow-color: rgba(56, 189, 248, 0.15);
+    --lightbox-bg: rgba(15, 23, 42, 0.95);
+}
+
+[data-theme="light"] {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-utility: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-gradient: linear-gradient(135deg, #0284c7, #4f46e5);
+    --accent-color: #0284c7;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --glow-color: rgba(2, 132, 199, 0.05);
+    --lightbox-bg: rgba(255, 255, 255, 0.98);
+}
+
+/* ==========================================================================
+   Global & Utility Reset
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: var(--transition-smooth);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* ==========================================================================
+   Navigation Bar
+   ========================================================================== */
+.utility-bar {
+    background-color: var(--bg-utility);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    box-shadow: var(--card-shadow);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.nav-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.brand-gradient-icon {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-sub-label {
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.theme-toggle-btn {
+    background: var(--bg-primary);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.theme-toggle-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+}
+
+.nav-actions-group {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link-btn {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: var(--transition-smooth);
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link-btn:hover,
+.nav-link-btn.highlight {
+    color: var(--text-primary);
+    border-bottom-color: var(--accent-color);
+}
+
+/* ==========================================================================
+   Header Section
+   ========================================================================== */
+.club-header {
+    position: relative;
+    padding: 5rem 0 3rem 0;
+    background-color: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.header-glow-effect {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 600px;
+    height: 400px;
+    background: var(--accent-gradient);
+    filter: blur(120px);
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.club-meta-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.club-main-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.club-dynamic-motto {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Gallery Controls & Filter Section
+   ========================================================================== */
+.main-content {
+    padding: 3rem 0;
+}
+
+.gallery-filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    background-color: var(--bg-secondary);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    color: var(--text-secondary);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--accent-gradient);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px var(--glow-color);
+}
+
+/* ==========================================================================
+   Gallery Sections & Layout Cards
+   ========================================================================== */
+.gallery-section {
+    margin-bottom: 4rem;
+    transition: var(--transition-smooth);
+}
+
+.section-heading-wrapper {
+    margin-bottom: 2rem;
+}
+
+.section-heading-wrapper h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-heading-wrapper h2 i {
+    color: var(--accent-color);
+}
+
+.section-heading-wrapper p {
+    color: var(--text-secondary);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-card {
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--glow-color);
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.gallery-media-wrapper {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-media-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.gallery-card:hover .gallery-media-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Video Frame Adjustments */
+.video-wrapper {
+    aspect-ratio: 16 / 9;
+    cursor: default;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Overlays & Badges */
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 20%, rgba(15, 23, 42, 0.4) 60%, transparent);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.video-info-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+    pointer-events: none;
+}
+
+.video-info-overlay h3 {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.gallery-badge {
+    align-self: flex-start;
+    background: var(--accent-gradient);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.gallery-overlay h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin: 0.5rem 0 0.25rem 0;
+}
+
+.gallery-overlay p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Lightbox Modal Module
+   ========================================================================== */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    inset: 0;
+    background-color: var(--lightbox-bg);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.lightbox-content {
+    max-width: 85%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    animation: zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: var(--text-primary);
+    font-size: 3rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-close:hover {
+    transform: rotate(90deg);
+    color: var(--accent-color);
+}
+
+#lightboxCaption {
+    margin-top: 1.5rem;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+    background-color: var(--bg-utility);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Animations & Responsive Breakpoints
+   ========================================================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    to {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-actions-group {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .club-main-title {
+        font-size: 2.25rem;
+    }
+
+    .gallery-filter-controls {
+        flex-wrap: wrap;
+    }
+}
+
+/* Marquee */
+.marquee-container {
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 25s linear infinite;
+}
+
+.marquee-content span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Welcome Overlay */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-color);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.welcome-content {
+    text-align: center;
+    position: relative;
+}
+
+.welcome-text {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.welcome-subtext {
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+#fireworksCanvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+}
+
+#bouncy-section-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 40px 0;
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--border-color);
+}
+
+/* ==========================================================================
+   KPC Portal - Marquee & Welcome Overlay Styles
+   ========================================================================== */
+
+/* 1. Scrolling Marquee Component */
+.marquee-container {
+    width: 100%;
+    background: linear-gradient(90deg, #1e2640, #121829);
+    border-bottom: 1px solid #2e3752;
+    overflow: hidden;
+    position: relative;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.marquee-content {
+    display: flex;
+    white-space: nowrap;
+    animation: scrollMarquee 20s linear infinite;
+}
+
+.marquee-content span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #38bdf8;
+    letter-spacing: 0.05em;
+}
+
+/* Continuous Horizontal Scrolling Animation */
+@keyframes scrollMarquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* 2. Interactive Welcome Overlay Screen */
+.welcome-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: #0a0f1d;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fade Out Class applied via JavaScript */
+.welcome-overlay.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.welcome-content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    padding: 20px;
+}
+
+.welcome-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 30%, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textPulse 2s ease-in-out infinite alternate;
+}
+
+.welcome-subtext {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #94a3b8;
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+/* Particle Canvas Container Alignment */
+#fireworksCanvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Subtle Headline Animation */
+@keyframes textPulse {
+    from {
+        transform: scale(0.98);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Screen Size Media Adaptations */
+@media (max-width: 768px) {
+    .welcome-text {
+        font-size: 2rem;
+    }
+
+    .welcome-subtext {
+        font-size: 0.95rem;
+    }
+}
+
+/* ==========================================================================
+   KPC Portal - Theme Toggle Button Styles
+   ========================================================================== */
+
+/* Base Design Variable Configurations */
+:root {
+    --bg-nav: #121829;
+    --text-nav: #f8fafc;
+    --border-nav: #2e3752;
+    --bg-toggle: #1e2640;
+    --bg-toggle-hover: #2a3454;
+    --transition-theme: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+    --bg-nav: #ffffff;
+    --text-nav: #0f172a;
+    --border-nav: #e2e8f0;
+    --bg-toggle: #f1f5f9;
+    --bg-toggle-hover: #e2e8f0;
+}
+
+/* Apply global layout transition behaviors */
+body,
+nav,
+button {
+    transition: var(--transition-theme);
+}
+
+/* Theme Toggle Button Layout Rules */
+.theme-toggle-btn {
+    background-color: var(--bg-toggle);
+    color: var(--text-nav);
+    border: 1px solid var(--border-nav);
+    padding: 8px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    outline: none;
+    user-select: none;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--bg-toggle-hover);
+    transform: translateY(-1px);
+}
+
+.theme-toggle-btn:active {
+    transform: translateY(0);
+}

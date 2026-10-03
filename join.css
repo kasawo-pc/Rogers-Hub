@@ -1,0 +1,396 @@
+:root {
+    --bg-primary: #0f172a;
+    --bg-card: #1e293b;
+    --bg-input: #0f172a;
+    --accent: #38bdf8;
+    --accent-hover: #0284c7;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --error: #ef4444;
+    --success: #22c55e;
+    --border: #334155;
+}
+
+[data-theme="light"] {
+    --bg-primary: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-input: #f1f5f9;
+    --accent: #0284c7;
+    --accent-hover: #0369a1;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nav Utility Bar */
+.utility-bar {
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand-logo {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.brand-gradient-icon {
+    color: var(--accent);
+}
+
+.brand-sub-label {
+    color: var(--accent);
+    font-weight: 400;
+}
+
+.btn-toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Main Layout */
+.auth-page-wrapper {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .auth-page-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+.auth-banner-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.panel-badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.auth-banner-panel h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.auth-banner-panel p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.banner-gateway-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.gateway-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Form Panel */
+.form-container-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+}
+
+.btn-back-home {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.auth-tabs-toggle {
+    display: flex;
+    background: var(--bg-input);
+    padding: 0.25rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.tab-toggle-btn {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.tab-toggle-btn.active {
+    background: var(--bg-card);
+    color: var(--text-main);
+}
+
+.auth-main-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.auth-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.auth-secure-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.input-group input {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-input);
+    color: var(--text-main);
+    outline: none;
+}
+
+.password-input-wrapper {
+    display: flex;
+    position: relative;
+}
+
+.password-input-wrapper input {
+    width: 100%;
+}
+
+.btn-toggle-password {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.btn-submit-action {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.85rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.btn-submit-action:hover {
+    background: var(--accent-hover);
+}
+
+.error-message-bubble {
+    color: var(--error);
+    font-size: 0.8rem;
+}
+
+.form-feedback-dialog {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.form-feedback-dialog.error {
+    color: var(--error);
+}
+
+.form-feedback-dialog.success {
+    color: var(--success);
+}
+
+.form-card-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.signup-link-highlight {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Account & Table Styles */
+.account-details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+.status-badge {
+    background: var(--success);
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* Site Footer */
+.site-main-footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-primary-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-brand-mission-statement {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    max-width: 300px;
+    margin-top: 0.5rem;
+}
+
+.registry-data-list {
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.footer-copyright-meta-bar {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.footer-meta-flex-alignment {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Button Container Style */
+.btn-submit-form {
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0;
+    /* Remove padding here so link fills the button */
+    transition: background-color 0.2s ease;
+}
+
+/* Hover Effect */
+.btn-submit-form:hover {
+    background-color: #0056b3;
+}
+
+/* Link Style Expansion */
+.btn-submit-form a {
+    color: #ffffff;
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    /* Padding goes here to make the whole button clickable */
+    text-decoration: none;
+    width: 100%;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse recent web projects and design previews crafted by Rogers Hub.">
+    <meta name="keywords" content="Portfolio Gallery, Rogers Hub Web Design, HTML CSS JavaScript Projects">
+    <link rel="stylesheet" href="index.css">
+    <!-- FontAwesome for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Gallery & Projects | Rogers Hub</title>
+</head>
+
+<body>
+
+    <!-- Utility Navigation Bar -->
+    <nav class="utility-bar" aria-label="Global Utility Navigation">
+        <div class="nav-brand">
+            <span class="brand-logo">&lt; / &gt;</span> Rogers Hub
+        </div>
+        <div class="nav-actions-group" id="navActions">
+            <a href="index.html" class="nav-link-btn">Home</a>
+            <a href="about.html" class="nav-link-btn">About Us</a>
+            <a href="package.html" class="nav-link-btn">Our Services</a>
+            <a href="pricing.html" class="nav-link-btn" >Pricing</a>
+            
+            <a href="contact.html" class="nav-link-btn">Contact Us</a>
+            <a href="join.html" class="nav-link-btn highlight">Join Hub</a>
+            <a href="blog.html" class="nav-link-btn">Our Blog</a>
+            <a href="testimonials.html" class="nav-link-btn">Our Testimonials</a>
+            <a href="privacy.html" class="nav-link-btn">Our privacy</a>
+            <a href="terms.html" class="nav-link-btn">Our Terms</a>
+        </div>
+        <div class="menu-toggle" id="mobileMenuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="hero-header">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="code-badge">&lt; / &gt; Project Showcase</div>
+                <h1 class="headings">Project Gallery</h1>
+                <p class="slogan">A visual showcase of websites and systems built by Rogers Hub</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/256741798579" target="_blank" class="btn contact whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp Me
+                    </a>
+                    <a href="mailto:rogerrichardpark744@gmail.com" class="btn contact email-btn">
+                        <i class="fa-solid fa-envelope"></i> Email Me
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="pic/rogers.jpg" alt="Rogers - Project Gallery" class="hero-img">
+            </div>
+        </div>
+    </header>
+
+    <!-- Marquee Announcement Bar -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>🚀 Welcome to Rogers Hub</span>
+            <span>✨ Get Website Creation From Rogers</span>
+            <span>📞 Contact Us on 0741798579 (WhatsApp)</span>
+            <span>✉️ Email: rogerrichardpark744@gmail.com</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="presentation-card-component connection-section-block scroll-reveal">
+            <div class="card-component-header">
+                <h2 class="headings">Featured Works</h2>
+                <p class="intro-text">
+                    <i>Take a look at some of the custom solutions deployed for local organizations and storefronts.</i>
+                </p>
+
+                <div class="skills-container" style="margin-top: 30px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left;">
+                        
+                        <!-- Project 1 -->
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; padding: 20px;">
+                            <div style="height: 140px; background: rgba(247, 223, 30, 0.1); display: flex; align-items: center; justify-content: center; border-radius: 6px; margin-bottom: 15px;">
+                                <i class="fa-solid fa-laptop-code" style="font-size: 3rem; color: #f7df1e;"></i>
+                            </div>
+                            <h3 class="headings" style="font-size: 1.1rem; margin-bottom: 8px;">Kasawo Programmers Club</h3>
+                            <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 15px;">A community hub and website created to unite local software enthusiasts, share tech materials, and support collaborative development.</p>
+                            <span class="skill-badge" style="display: inline-block; font-size: 0.75rem;">HTML / CSS / JS</span>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; padding: 20px;">
+                            <div style="height: 140px; background: rgba(21, 114, 182, 0.1); display: flex; align-items: center; justify-content: center; border-radius: 6px; margin-bottom: 15px;">
+                                <i class="fa-solid fa-store" style="font-size: 3rem; color: #1572b6;"></i>
+                            </div>
+                            <h3 class="headings" style="font-size: 1.1rem; margin-bottom: 8px;">BK Shop E-Commerce</h3>
+                            <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 15px;">A clean digital shopping interface built for BK Enterprises to optimize online sales display and customer ordering workflows.</p>
+                            <span class="skill-badge" style="display: inline-block; font-size: 0.75rem;">E-Commerce & UI Design</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="action-wrapper" style="margin-top: 40px;">
+                    <a href="mailto:rogerrichardpark744@gmail.com" class="btn contact">Request Custom Project Design</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top-container">
+        <button id="backToTopBtn" class="btn contact"><i class="fa-solid fa-arrow-up"></i> Jump To The Top</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3 class="headings">Rogers Hub</h3>
+            <p>&copy; 2026 Rogers Hub. All rights reserved.</p>
+            <hr class="footer-divider">
+            <p class="headings">
+                Developed by <span class="auto-style1"><strong><em>Rogers</em></strong></span>
+            </p>
+            <p><i>If You Want Website Creation, Email The Designer Today!</i></p>
+            <a href="mailto:rogerrichardpark744@gmail.com" class="btn contact footer-btn">
+                <span><i class="fa-solid fa-paper-plane"></i> Email To Rogers</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="index.js"></script>
+</body>
+
+</html>

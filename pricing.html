@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Affordable and transparent web design pricing packages by Rogers Hub in Uganda.">
+    <meta name="keywords" content="Web Design Pricing, Rogers Hub, Affordable Websites Uganda, Web Developer Uganda">
+    
+    <!-- FontAwesome for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS for utility fallback & layout scaffolding -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Pricing Plans | Rogers Hub</title>
+
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --surface-color: #111827;
+            --surface-glass: rgba(17, 24, 39, 0.75);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-color: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.25);
+            --gold-color: #f7df1e;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Utility Navigation Bar */
+        .utility-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .utility-bar.scrolled {
+            height: 65px;
+            background: rgba(11, 15, 25, 0.95);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.025em;
+        }
+
+        .brand-logo {
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            color: #0b0f19;
+            font-family: 'Fira Code', monospace;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .nav-actions-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link-btn {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link-btn:hover, .nav-link-btn.active {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-link-btn.highlight {
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+        }
+
+        .nav-link-btn.highlight:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #ffffff;
+            padding: 8px;
+        }
+
+        /* Hero Section */
+        .hero-header {
+            padding: 140px 5% 80px 5%;
+            background: radial-gradient(circle at 70% 30%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
+                        radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .code-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--accent-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'Fira Code', monospace;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+        }
+
+        .headings {
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #ffffff;
+        }
+
+        .hero-content h1.headings {
+            font-size: clamp(2.5rem, 5vw, 3.75rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slogan {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            background: #22bf5b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .email-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .email-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 380px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 2px solid rgba(56, 189, 248, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.2);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-img:hover {
+            transform: scale(1.02) rotate(1deg);
+        }
+
+        /* Marquee Announcement Bar */
+        .marquee-container {
+            background: linear-gradient(90deg, #0b0f19, #111827, #0b0f19);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 14px 0;
+            position: relative;
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding: 0 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Currency / Budget Interactive Calculator Box */
+        .calculator-widget {
+            background: rgba(17, 24, 39, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Main Content & Presentation Cards */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+
+        .presentation-card-component {
+            background: var(--surface-glass);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-component-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .card-component-header h2.headings {
+            font-size: clamp(2rem, 3vw, 2.75rem);
+            margin-bottom: 12px;
+        }
+
+        .intro-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Pricing Card Grid Styles */
+        .pricing-card-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .pricing-card-item:hover {
+            transform: translateY(-6px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .pricing-card-item.featured {
+            background: rgba(56, 189, 248, 0.04);
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.2);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            color: #0b0f19;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+        }
+
+        .prices {
+            color: var(--accent-color);
+            font-size: 1.15rem;
+            font-family: 'Fira Code', monospace;
+            margin-top: 15px;
+            padding: 10px 14px;
+            background: rgba(56, 189, 248, 0.08);
+            border-radius: 8px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Back to Top */
+        .back-to-top-container {
+            text-align: center;
+            padding: 20px 0 60px 0;
+        }
+
+        #backToTopBtn {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #backToTopBtn:hover {
+            background: var(--accent-color);
+            color: #0b0f19;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #070910;
+            border-top: 1px solid var(--border-color);
+            padding: 60px 5% 40px 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-content h3.headings {
+            font-size: 1.75rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-divider {
+            border: none;
+            height: 1px;
+            background: var(--border-color);
+            margin: 30px 0;
+        }
+
+        .footer-btn {
+            margin-top: 20px;
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            color: #ffffff;
+            border: none;
+        }
+
+        .footer-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .nav-actions-group {
+                position: fixed;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: rgba(11, 15, 25, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 30px;
+                gap: 15px;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 20px 30px rgba(0,0,0,0.5);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                pointer-events: none;
+            }
+            .nav-actions-group.mobile-open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Utility Navigation Bar -->
+    <nav class="utility-bar" id="navbar" aria-label="Global Utility Navigation">
+        <div class="nav-brand">
+            <span class="brand-logo">&lt; / &gt;</span> Rogers Hub
+        </div>
+        <div class="nav-actions-group" id="navActions">
+            <a href="index.html" class="nav-link-btn">Home</a>
+            <a href="about.html" class="nav-link-btn">About Us</a>
+            <a href="package.html" class="nav-link-btn active">Our Services</a>
+            <a href="gallery.html" class="nav-link-btn">Gallery</a>
+            <a href="contact.html" class="nav-link-btn">Contact Us</a>
+            <a href="join.html" class="nav-link-btn highlight">Join Hub</a>
+            <a href="blog.html" class="nav-link-btn">Our Blog</a>
+            <a href="testimonials.html" class="nav-link-btn">Testimonials</a>
+            <a href="privacy.html" class="nav-link-btn">Privacy</a>
+            <a href="terms.html" class="nav-link-btn">Terms</a>
+        </div>
+        <div class="menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+            <i class="fa-solid fa-bars" id="menuIcon"></i>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="hero-header">
+        <div class="hero-container">
+            <div class="hero-content scroll-reveal">
+                <div class="code-badge">&lt; / &gt; Investment Options</div>
+                <h1 class="headings">Pricing Plans</h1>
+                <p class="slogan">Transparent packages designed to fit your budget and project scope with professional Ugandan web architecture standards.</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/256741798579?text=Hello%20Rogers,%20I%20saw%20your%20pricing%20plans%20and%20want%20to%20discuss%20a%20project." target="_blank" class="btn contact whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp Me
+                    </a>
+                    <a href="mailto:rogerrichardpark744@gmail.com" class="btn contact email-btn">
+                        <i class="fa-solid fa-envelope"></i> Email Me
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper scroll-reveal">
+                <img src="pic/rogers.jpg" alt="Rogers - Pricing Plans" class="hero-img" onerror="this.src='https://placehold.co/400x400/111827/38bdf8?text=Rogers+Hub'">
+            </div>
+        </div>
+    </header>
+
+    <!-- Marquee Announcement Bar -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>🚀 Welcome to Rogers Hub</span>
+            <span>✨ Get Website Creation From Rogers</span>
+            <span>📞 Contact Us on 0741798579 (WhatsApp)</span>
+            <span>✉️ Email: rogerrichardpark744@gmail.com</span>
+            <span>🚀 Welcome to Rogers Hub</span>
+            <span>✨ Get Website Creation From Rogers</span>
+            <span>📞 Contact Us on 0741798579 (WhatsApp)</span>
+            <span>✉️ Email: rogerrichardpark744@gmail.com</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="presentation-card-component connection-section-block scroll-reveal">
+            
+            <!-- Interactive Budget & Currency Estimator Widget -->
+            <div class="calculator-widget">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <h3 class="headings" style="font-size: 1.1rem; color: #38bdf8;"><i class="fa-solid fa-calculator"></i> Quick Currency & Package Estimator</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Estimate package costs in USD or select your desired tier.</p>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <label style="font-size: 0.85rem; font-weight: 600;">Currency:</label>
+                        <select id="currencySelect" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border-color); color: #fff; padding: 6px 12px; border-radius: 6px; outline: none; cursor: pointer;">
+                            <option value="UGX" selected>UGX (Ugandan Shillings)</option>
+                            <option value="USD">USD (US Dollars ~ 3,700 Rate)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-component-header">
+                <h2 class="headings">Choose Your Package</h2>
+                <p class="intro-text">
+                    <i>Get professional web design value without breaking the bank. Contact Rogers to lock in your project schedule today.</i>
+                </p>
+
+                <div class="skills-container" style="margin-top: 30px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; text-align: left; margin-top: 20px;">
+                        
+                        <!-- Starter Package -->
+                        <div class="pricing-card-item">
+                            <div>
+                                <h3 class="headings" style="font-size: 1.3rem; margin-bottom: 8px;">Starter Portfolio</h3>
+                                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">Ideal for personal portfolios and simple landing pages.</p>
+                                <ul style="list-style: none; padding: 0; margin-bottom: 25px; font-size: 0.9rem; line-height: 2.2;">
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i> Single Page Website</li>
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i> Mobile Responsive Layout</li>
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i> Contact & WhatsApp Buttons</li>
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i> Basic SEO Setup</li>
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i><div class="prices" data-ugx-min="150000" data-ugx-max="300000"><strong><b>From UGX 150,000 - 300,000</b></strong></div></li>
+                                </ul>
+                            </div>
+                            <a href="https://wa.me/256741798579?text=Hello%20Rogers,%20I%20am%20interested%20in%20the%20Starter%20Portfolio%20package." target="_blank" class="btn contact" style="display: block; text-align: center; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8;">Inquire Now</a>
+                        </div>
+
+                        <!-- Professional Package -->
+                        <div class="pricing-card-item featured">
+                            <span class="popular-badge">POPULAR</span>
+                            <div>
+                                <h3 class="headings" style="font-size: 1.3rem; margin-bottom: 8px;">Business Website</h3>
+                                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">Perfect for expanding local businesses and community clubs.</p>
+                                <ul style="list-style: none; padding: 0; margin-bottom: 25px; font-size: 0.9rem; line-height: 2.2;">
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i> Multi-page Website (Home, About, Services)</li>
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i> Advanced Responsive Design</li>
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i> Custom Integration (Like Kasawo Programmers)</li>
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i> Fast Turnaround Time</li>
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i><div class="prices" data-ugx-min="300000" data-ugx-max="500000"><strong><b>From UGX 300,000 - 500,000</b></strong></div></li>
+                                </ul>
+                            </div>
+                            <a href="https://wa.me/256741798579?text=Hello%20Rogers,%20I%20am%20interested%20in%20the%20Business%20Website%20package." target="_blank" class="btn contact" style="display: block; text-align: center; background: linear-gradient(135deg, #38bdf8, #6366f1); color: #0b0f19; font-weight: 700;">Inquire Now</a>
+                        </div>
+
+                        <!-- E-Commerce Package -->
+                        <div class="pricing-card-item">
+                            <div>
+                                <h3 class="headings" style="font-size: 1.3rem; margin-bottom: 8px;">E-Commerce Store</h3>
+                                <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 20px;">Built for online shops wishing to sell digital or physical products.</p>
+                                <ul style="list-style: none; padding: 0; margin-bottom: 25px; font-size: 0.9rem; line-height: 2.2;">
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i> Full Shop Architecture (Like BK Shop)</li>
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i> Product Showcase Grid</li>
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i> Direct WhatsApp Checkout Support</li>
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i> Complete Code Handover & Training</li>
+                                    <li><i class="fa-solid fa-circle-check" style="color: #4CAF50; margin-right: 8px;"></i><div class="prices" data-ugx-min="300000" data-ugx-max="500000"><strong><b>From UGX 300,000 - 500,000</b></strong></div></li>
+                                </ul>
+                            </div>
+                            <a href="https://wa.me/256741798579?text=Hello%20Rogers,%20I%20am%20interested%20in%20the%20E-Commerce%20Store%20package." target="_blank" class="btn contact" style="display: block; text-align: center; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8;">Inquire Now</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top-container scroll-reveal">
+        <button id="backToTopBtn"><i class="fa-solid fa-arrow-up"></i> Jump To The Top</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3 class="headings">Rogers Hub</h3>
+            <p>&copy; 2026 Rogers Hub. All rights reserved.</p>
+            <hr class="footer-divider">
+            <p class="headings">
+                Developed by <span class="auto-style1"><strong><em>Rogers</em></strong></span>
+            </p>
+            <p><i>If You Want Website Creation, Email The Designer Today!</i></p>
+            <a href="mailto:rogerrichardpark744@gmail.com" class="btn contact footer-btn">
+                <span><i class="fa-solid fa-paper-plane"></i> Email To Rogers</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navActions = document.getElementById('navActions');
+            const menuIcon = document.getElementById('menuIcon');
+
+            if (mobileMenuBtn && navActions) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navActions.classList.toggle('mobile-open');
+                    if (navActions.classList.contains('mobile-open')) {
+                        menuIcon.classList.remove('fa-bars');
+                        menuIcon.classList.add('fa-xmark');
+                    } else {
+                        menuIcon.classList.remove('fa-xmark');
+                        menuIcon.classList.add('fa-bars');
+                    }
+                });
+
+                // Close mobile menu when clicking any nav link
+                navActions.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navActions.classList.remove('mobile-open');
+                        menuIcon.classList.remove('fa-xmark');
+                        menuIcon.classList.add('fa-bars');
+                    });
+                });
+            }
+
+            // 2. Navbar Scroll Shadow Effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 40) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // 3. Scroll Reveal Animation observer
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // 4. Back to Top Button
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // 5. Interactive Currency Converter / Calculator for Packages
+            const currencySelect = document.getElementById('currencySelect');
+            const priceElements = document.querySelectorAll('.prices');
+            const exchangeRateUSD = 3700; // Approximate UGX to USD rate
+
+            if (currencySelect) {
+                currencySelect.addEventListener('change', (e) => {
+                    const currency = e.target.value;
+                    priceElements.forEach(el => {
+                        const minUgx = parseInt(el.getAttribute('data-ugx-min'));
+                        const maxUgx = parseInt(el.getAttribute('data-ugx-max'));
+                        const strongTag = el.querySelector('strong b');
+
+                        if (strongTag) {
+                            if (currency === 'USD') {
+                                const minUsd = Math.round(minUgx / exchangeRateUSD);
+                                const maxUsd = Math.round(maxUgx / exchangeRateUSD);
+                                strongTag.textContent = `From USD $${minUsd} - $${maxUsd}`;
+                            } else {
+                                const formattedMin = minUgx.toLocaleString();
+                                const formattedMax = maxUgx.toLocaleString();
+                                strongTag.textContent = `From UGX ${formattedMin} - ${formattedMax}`;
+                            }
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
