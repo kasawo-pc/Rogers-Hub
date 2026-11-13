@@ -38,6 +38,15 @@
     @media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 30px))}.topline-inner{justify-content:center;text-align:center;padding:7px 0}.topline-inner span:last-child{display:none}.hero{padding:55px 0}.hero-art{min-height:300px}.browser{transform:none}.float.one{right:0;top:25px}.float.two{left:0;bottom:18px}.grid3,.pricing,.feature-row,.quote-grid,.blog-grid,.faq-list{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:22px}.footer-brand{grid-column:1/-1}.section{padding:58px 0}.join-panel{padding:24px}.contact-inner{align-items:flex-start}.contact-actions{width:100%}.contact-actions .btn{flex:1}.trust-points{gap:11px}.ticker-inner{justify-content:center;text-align:center}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
   </style>
+  <style id="rogers-hub-assistant-styles">
+.rh-assistant{position:fixed;right:22px;bottom:22px;z-index:9999;font-family:"DM Sans",sans-serif;color:#f4f7ff}
+.rh-launcher{display:flex;align-items:center;gap:9px;border:0;border-radius:999px;padding:13px 19px;background:linear-gradient(120deg,#6d8cff,#8b69ff);color:#fff;font-weight:700;box-shadow:0 12px 36px #0008;cursor:pointer}
+.rh-launcher span:first-child{font-size:1.25rem}.rh-panel{position:absolute;right:0;bottom:66px;width:min(370px,calc(100vw - 28px));height:min(540px,calc(100dvh - 120px));background:#0d1728;border:1px solid rgba(255,255,255,.15);border-radius:19px;box-shadow:0 22px 70px #000b;display:flex;flex-direction:column;overflow:hidden}
+.rh-panel[hidden]{display:none}.rh-head{display:flex;justify-content:space-between;align-items:center;padding:16px 17px;background:#121f34;border-bottom:1px solid rgba(255,255,255,.1)}.rh-head strong,.rh-head small{display:block}.rh-head small{font-size:.75rem;color:#9ba9bd;margin-top:2px}.rh-close{border:0;background:transparent;color:#fff;font-size:1.7rem;cursor:pointer;line-height:1}
+.rh-messages{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:10px}.rh-message{max-width:90%;padding:11px 13px;border-radius:14px;font-size:.88rem;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}.rh-bot{background:#17253a;color:#e9efff;align-self:flex-start;border-bottom-left-radius:4px}.rh-user{background:#526fe0;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.rh-prompts{display:flex;flex-wrap:wrap;gap:7px;padding:0 13px 11px}.rh-prompts button{border:1px solid rgba(255,255,255,.17);background:#111f33;color:#dce6ff;border-radius:999px;padding:7px 10px;font-size:.73rem;cursor:pointer}.rh-form{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.1)}.rh-form input{min-width:0;flex:1;border:1px solid rgba(255,255,255,.16);border-radius:11px;padding:11px 12px;background:#08111f;color:#fff;outline:none}.rh-form input:focus{border-color:#829bff}.rh-form>button{width:43px;border:0;border-radius:11px;background:#6d8cff;color:white;font-size:1.15rem;cursor:pointer}.rh-foot{text-align:center;padding:0 8px 12px;color:#9ba9bd;font-size:.7rem}.rh-foot a{color:#9db0ff;text-decoration:underline}.rh-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:520px){.rh-assistant{right:12px;bottom:12px}.rh-launcher{padding:12px 15px}.rh-panel{right:-2px;bottom:61px;width:calc(100vw - 24px);height:min(560px,calc(100dvh - 95px))}}
+  </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -176,5 +185,5 @@
   backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
   if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.12});document.querySelectorAll('.card,.feature,.quote,.article,.about-grid,.join-panel,.faq').forEach(el=>{el.classList.add('reveal');observer.observe(el);});}
 </script>
-<script src="site.js?v=20261113" defer></script></body>
+<script src="site.js?v=20261113-ai" defer></script></body>
 </html>
